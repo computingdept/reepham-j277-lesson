@@ -345,6 +345,16 @@
     .i-do-page .think { margin: .25rem 0 0; }
     .i-do-page .think-panel { font-size: .93em; line-height: 1.36; }
     .i-do-page .exam-answer { margin-top: .55rem; }
+    .trace-table { width: 100%; border-collapse: collapse; margin: .45rem 0; font-size: .86em; }
+    .trace-table th, .trace-table td { border: 2px solid #9fb6a9; padding: .3rem .48rem; text-align: left; }
+    .trace-table th { background: #e8f5ee; color: var(--reepham-dark); font-weight: 900; }
+    .trace-table .trace-stage { display: none; counter-increment: none; }
+    .trace-table .trace-stage.step-visible { display: table-row-group; }
+    .trace-table .trace-stage::before { content: none; display: none; }
+    .trace-table .trace-stage tr:nth-child(even) td { background: #f8fbf9; }
+    .exam-response { display: grid; gap: .35rem; margin-top: .45rem; }
+    .exam-response div { display: grid; grid-template-columns: minmax(0, 1fr) 2.15fr; gap: .55rem; align-items: end; }
+    .exam-response span { min-height: 1.45em; border-bottom: 2px solid #788a80; }
     .think-swap-card.show-thinking {
       border: 2px solid #8eb4a1;
       border-left: 8px solid var(--reepham);
@@ -387,6 +397,15 @@
     }
     .you-do-grid pre.code { margin: .25rem 0; padding: .42rem .5rem; font-size: .6em; line-height: 1.2; max-height: 116px; }
     .you-do-grid .answer pre.code { font-size: .62em; max-height: 125px; }
+    .you-do-grid .wide { grid-column: span 2; }
+    .you-do-grid .wide pre.code { max-height: none; }
+    .flowchart-prompt { display: grid; gap: .18rem; margin: .35rem 0; font-family: Consolas, "Cascadia Code", monospace; font-size: .63em; line-height: 1.12; text-align: center; }
+    .flowchart-prompt > div { border: 2px solid #52645c; background: #fff; padding: .22rem .32rem; }
+    .flowchart-prompt .terminal { border-radius: 999px; }
+    .flowchart-prompt .input-output { transform: skewX(-13deg); }
+    .flowchart-prompt .decision { margin: 0 auto; width: 76%; transform: rotate(45deg); aspect-ratio: 1.6; display: grid; place-items: center; }
+    .flowchart-prompt .decision span { display: block; transform: rotate(-45deg); }
+    .flowchart-prompt .arrow { border: 0; padding: 0; font-family: sans-serif; color: var(--reepham-dark); font-weight: 900; }
 
     .vocab { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: .48rem; }
     .vocab div { background: #fff; border: 1px solid var(--line); border-radius: .6rem; padding: .54rem .62rem; }
@@ -503,6 +522,7 @@
       .structure-grid .card, .structure-grid .card:nth-child(4), .structure-grid .card:nth-child(5) { grid-column: auto; }
       .quick-rules { grid-template-columns: 1fr; }
       .you-do-grid { grid-template-columns: 1fr; }
+      .you-do-grid .wide { grid-column: auto; }
       .you-do-title { white-space: normal; }
       .vocab-head { align-items: flex-start; flex-direction: column; white-space: normal; }
       .exit-options { grid-template-columns: 1fr; }
@@ -580,16 +600,16 @@
       <div class="page-head"><div class="eyebrow">Turn knowledge into marks · OCR ExamBuilder Q2(c)</div><p class="lead"><strong>Complete the trace table for this algorithm.</strong> <span class="marks">[3 marks]</span></p></div>
       <div class="sticky-layout">
         <div class="card think-swap-card">
-          <div class="think-task"><pre class="code">01 start = 3
+          <div class="think-task"><p><strong>Read the following pseudocode algorithm:</strong></p><pre class="code">01 start = 3
 02 do
-03   print(start)
-04   start = start - 1
+03 print(start)
+04 start = start - 1
 05 until start == -1
-06 print("Finished")</pre><div class="steps">
-            <div class="model-step"><div><h3>Step 1 — first pass</h3><p>Line 01 sets <code>start</code> to <code>3</code>. Line 03 outputs <code>3</code>.</p></div></div>
-            <div class="model-step"><div><h3>Step 2 — repeat accurately</h3><p>Line 04 reduces <code>start</code> by 1 after each output. The next outputs are <code>2</code>, then <code>1</code>, then <code>0</code>.</p></div></div>
-            <div class="model-step"><div><h3>Step 3 — stop at the condition</h3><p>After outputting <code>0</code>, line 04 makes <code>start</code> equal <code>-1</code>. The loop ends and line 06 outputs <code>Finished</code>.</p></div></div>
-          </div></div>
+06 print("Finished")</pre><p><strong>Complete the following trace table for the given algorithm.</strong></p><table class="trace-table"><thead><tr><th>Line number</th><th>start</th><th>Output</th></tr></thead>
+            <tbody class="trace-stage model-step"><tr><td>01</td><td>3</td><td></td></tr><tr><td>03</td><td>3</td><td>3</td></tr><tr><td>04</td><td>2</td><td></td></tr></tbody>
+            <tbody class="trace-stage model-step"><tr><td>03</td><td>2</td><td>2</td></tr><tr><td>04</td><td>1</td><td></td></tr><tr><td>03</td><td>1</td><td>1</td></tr><tr><td>04</td><td>0</td><td></td></tr></tbody>
+            <tbody class="trace-stage model-step"><tr><td>03</td><td>0</td><td>0</td></tr><tr><td>04</td><td>-1</td><td></td></tr><tr><td>06</td><td>-1</td><td>Finished</td></tr></tbody>
+          </table></div>
           <button class="think" type="button" aria-expanded="false">Let’s think…</button>
           <div class="think-panel">
             <div class="answer-context">OCR ExamBuilder Q2(c) · Mark-scheme answer</div>
@@ -605,11 +625,11 @@
       <div class="sticky-layout">
         <div class="grid">
           <article class="card swap-card" data-answer-context="OCR ExamBuilder Q3: identify each incorrect line and write its correction. [4 marks]">
-            <div class="task-view"><h2>Read before you refine</h2><pre class="code">01 total ← 0
+            <div class="task-view"><p><strong>This pseudocode algorithm totals all the numbers in the 0-indexed array <code>scores</code>.</strong></p><pre class="code">01 total = 0
 02 for scoreCount = 1 to scores.length - 1
-03   scores[scoreCount] = total + total
+03 scores[scoreCount] = total + total
 04 next scoreCount
-05 print(total)</pre><p>Identify the line number and write the refined line for each logic error.</p><textarea class="write-lines" aria-label="Corrected lines for scores algorithm"></textarea></div>
+05 print(total)</pre><p>The function <code>length</code> returns the number of elements in the array. The algorithm contains several errors. Two types of errors in a program are syntax and logic errors.</p><p><strong>Identify two logic errors in the pseudocode algorithm. Write the refined line to correct each error.</strong></p><div class="exam-response"><div><strong>Error 1 line number</strong><span></span></div><div><strong>Corrected line</strong><span></span></div><div><strong>Error 2 line number</strong><span></span></div><div><strong>Corrected line</strong><span></span></div></div></div>
             <div class="answer swap-answer"><h2>Mark-scheme answer</h2><p><strong>Line 02:</strong> <code>for scoreCount = 0 to scores.length - 1</code></p><p><strong>Line 03:</strong> <code>total = scores[scoreCount] + total</code></p></div>
           </article>
         </div>
@@ -618,25 +638,22 @@
     </section>
 
     <section id="you-do" class="page you-do-page" data-phase="You Do" data-behaviour="Silent Working" data-response="">
-      <div class="page-head"><h1 class="you-do-title"><span class="title-kicker">Independent exam practice · 25 marks</span> — Show what you can do</h1><p class="lead">Genuine OCR ExamBuilder questions, arranged for one classroom screen. Use OCR Exam Reference Language where pseudocode is required.</p></div>
+      <div class="page-head"><h1 class="you-do-title"><span class="title-kicker">Independent exam practice · 19 marks</span> — Show what you can do</h1><p class="lead">OCR ExamBuilder Questions 4–7. Answer using the command words and evidence shown in each question.</p></div>
       <div class="grid question-list you-do-grid">
-        <article class="card question"><h3>Concatenation <span class="marks">[3]</span></h3><p><strong>OCR ExamBuilder Q1.</strong> Write pseudocode to store <code>"Hello"</code> in <code>word1</code>, store <code>"Everyone"</code> in <code>word2</code>, then concatenate them and store <code>"HelloEveryone"</code> in <code>message</code>.</p><div class="answer"><strong>Mark-scheme answer:</strong><pre class="code">word1 = "Hello"
-word2 = "Everyone"
-message = word1 + word2</pre><p>Any valid concatenation operator is accepted, but the result must be stored in <code>message</code>.</p></div></article>
-        <article class="card question"><h3>Arithmetic and assignment <span class="marks">[5]</span></h3><p><strong>OCR ExamBuilder Q2(a-b) and Q5.</strong> Add <code>num1</code> and <code>num2</code> into <code>total</code>. Complete the operators below, then increment <code>score</code> by one.</p><pre class="code">print(12 ___ 2)
-if number ___ 2 == 0 then
-difference = measurement1 ___ measurement2</pre><div class="answer"><strong>Mark-scheme answer:</strong><p><code>total = num1 + num2</code>; <code>^</code> (or <code>**</code>); <code>MOD</code> (or <code>%</code>); <code>-</code>.</p><p><code>score = score + 1</code></p></div></article>
-        <article class="card question"><h3>Refine logic errors <span class="marks">[4]</span></h3><p><strong>OCR ExamBuilder Q3.</strong> The following should total every value in a 0-indexed array called <code>scores</code>. Identify two logic errors and refine the lines.</p><pre class="code">01 total = 0
-02 for scoreCount = 1 to scores.length - 1
-03   scores[scoreCount] = total + total
-04 next scoreCount
-05 print(total)</pre><div class="answer"><strong>Mark-scheme answer:</strong><p>Line 02: <code>for scoreCount = 0 to scores.length - 1</code></p><p>Line 03: <code>total = scores[scoreCount] + total</code></p></div></article>
-        <article class="card question"><h3>Read insertion sort <span class="marks">[4]</span></h3><p><strong>OCR ExamBuilder Q4(a-b).</strong> In the insertion-sort algorithm below, describe the purpose of <code>temp</code>. Explain why the inner loop must be condition-controlled.</p><pre class="code">temp = names[pos]
-names[pos] = names[pos - 1]
-names[pos - 1] = temp
-pos = pos - 1</pre><div class="answer"><strong>Mark-scheme answer:</strong><p><code>temp</code> stores the name/value so it can be moved or overwritten without being lost.</p><p>The number of moves is not known in advance; the loop repeats until the value is in the correct position.</p></div></article>
-        <article class="card question"><h3>Compare algorithms <span class="marks">[4]</span></h3><p><strong>OCR ExamBuilder Q6(i-ii).</strong> Describe one difference and two similarities between an insertion sort and a bubble sort.</p><div class="answer"><strong>Mark-scheme answer:</strong><p><strong>Difference:</strong> insertion sort moves a value into its correct place in a sorted section; bubble sort repeatedly compares and swaps adjacent values.</p><p><strong>Similarities:</strong> both sort values into order and both use iteration/comparisons (or both swap values/work with an array).</p></div></article>
-        <article class="card question"><h3>Write iterative pseudocode <span class="marks">[5]</span></h3><p><strong>OCR ExamBuilder Q7(ii).</strong> Write pseudocode that uses iteration to enter 10 values, count how many are over 50, then output the count once all 10 values have been entered.</p><div class="answer"><strong>Mark-scheme answer:</strong><pre class="code">count = 0
+        <article class="card question wide"><h3>4(a) and 4(b) Insertion sort <span class="marks">[4]</span></h3><p><strong>An insertion sort is one type of sorting algorithm.</strong> A student has written pseudocode to perform an insertion sort on a 1D array <code>names</code>.</p><pre class="code">names = ["Kareem", "Sarah", "Zac", "Sundip", "Anika"]
+for count = 1 to names.length - 1
+  pos = count
+  while (pos &gt; 0 and names[pos] &lt; names[pos - 1])
+    temp = names[pos]
+    names[pos] = names[pos - 1]
+    names[pos - 1] = temp
+    pos = pos - 1
+  endwhile
+next count</pre><p><strong>(a)</strong> Describe the purpose of <code>temp</code>. <strong>(b)</strong> Explain why the inner loop needs to be condition-controlled.</p><div class="answer"><strong>Mark-scheme answer:</strong><p><strong>(a)</strong> <code>temp</code> stores the name/value so it can be moved or overwritten without being lost. <strong>(b)</strong> The number of moves is not known in advance; the loop repeats until the current name reaches its correct position.</p></div></article>
+        <article class="card question"><h3>5 Increment <span class="marks">[1]</span></h3><p><strong>Write pseudocode to increment a value held in a variable <code>score</code> by one.</strong></p><div class="answer"><strong>Mark-scheme answer:</strong> <code>score = score + 1</code></div></article>
+        <article class="card question"><h3>6 Bubble sort <span class="marks">[4]</span></h3><p><strong>A bubble sort is one type of sorting algorithm.</strong></p><p><strong>(i)</strong> Describe one difference between an insertion sort and a bubble sort.</p><p><strong>(ii)</strong> Describe two similarities between an insertion sort and a bubble sort.</p><div class="answer"><strong>Mark-scheme answer:</strong><p><strong>Difference:</strong> insertion sort moves an item into its correct position; bubble sort compares and swaps adjacent pairs, often over several passes.</p><p><strong>Similarities:</strong> both sort values into order; both use iteration/comparisons (or both work with an array and may swap values).</p></div></article>
+        <article class="card question"><h3>7(i) Complete the flowchart <span class="marks">[5]</span></h3><p><strong>Taylor records experiment results.</strong> Each numeric value is added to a total; each total is output; the algorithm repeats until the total is over 100. For the next part, complete this flowchart to count values over 50 from 10 inputs.</p><div class="flowchart-prompt" aria-label="Flowchart with blanks for count initialisation, output and branch connections"><div class="terminal">Start</div><div class="arrow">↓</div><div>Count = __________</div><div class="arrow">↓</div><div class="input-output">INPUT Value</div><div class="arrow">↓</div><div class="decision"><span>Is Value<br>&gt; 50?</span></div><div>Yes: Add 1 to Count<br>No: __________</div><div class="decision"><span>Have 10 values<br>been entered?</span></div><div class="input-output">Yes: Output __________<br>No: __________</div><div class="terminal">End</div></div><div class="answer"><strong>Mark-scheme answer:</strong> initialise <code>Count = 0</code>; output <code>Count</code>; the first <em>No</em> skips the increment, and the second <em>No</em> returns to <code>INPUT Value</code>.</div></article>
+        <article class="card question"><h3>7(ii) Write pseudocode <span class="marks">[5]</span></h3><p><strong>Write a pseudocode algorithm that uses iteration to:</strong></p><ul><li>enter 10 values</li><li>count how many values are over 50</li><li>output the count after all 10 values are entered.</li></ul><div class="answer"><strong>Mark-scheme answer:</strong><pre class="code">count = 0
 for x = 1 to 10
   value = input("enter a value")
   if value &gt; 50 then
@@ -668,7 +685,7 @@ print(count)</pre></div></article>
         <button class="exit-choice" type="button" aria-pressed="false" data-choice="Need support next lesson"><span class="exit-icon" aria-hidden="true">👎</span><strong>Need support</strong><span>I am unsure about assignment, selection or loops.</span></button>
       </div>
       <p id="exitStatus" class="exit-status" aria-live="polite"></p>
-      <article class="card next-lesson-card"><h2>Get ready for next lesson</h2><p>Next, we will use pseudocode to carry out a linear search.</p></article>
+      <article class="card next-lesson-card"><h2>Get ready for next lesson</h2><p>Next, we will use the same read, trace and refine method on a new OCR algorithm question.</p></article>
     </section>
   </main>
 
