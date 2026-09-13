@@ -596,44 +596,44 @@
     </section>
 
     <section id="we-do" class="page" data-phase="We Do" data-behaviour="Quiet Working" data-response="MWB">
-      <div class="page-head"><div class="eyebrow">Improve the answer together · OCR J277/02 June 2022 Q1 (adapted)</div><p class="lead"><strong>Question:</strong> Complete a trace table for a short algorithm and record each output. <span class="marks">[3 marks]</span></p></div>
+      <div class="page-head"><div class="eyebrow">Improve the answer together · OCR J277/02 June 2024 Q5(f) (adapted)</div><p class="lead"><strong>Question:</strong> Improve pseudocode so a team name and score are input and stored separately. <span class="marks">[3 marks]</span></p></div>
       <div class="sticky-layout">
         <div class="grid">
-          <article class="card swap-card" data-answer-context="Trace score and state the output. [3 marks]">
-            <div class="task-view"><h2>Weak answer</h2><p>“The answer is 6 because 2 × 3 is 6.”</p><p>Improve it by showing the starting and changed value of <strong>score</strong>.</p><textarea class="write-lines" aria-label="Improved trace answer"></textarea></div>
-            <div class="answer swap-answer"><h2>Possible improved answer</h2><p><code>score</code> starts at 2, then becomes 6 after multiplying by 3.</p><p><strong>Output: 6</strong>.</p></div>
+          <article class="card swap-card" data-answer-context="Input and store a team name and team score separately. [3 marks]">
+            <div class="task-view"><h2>Weak answer</h2><p>“Put both inputs into <code>team</code>.”</p><p>Improve it using <strong>INPUT</strong> and two separate variables.</p><textarea class="write-lines" aria-label="Improved pseudocode"></textarea></div>
+            <div class="answer swap-answer"><h2>Mark-scheme answer</h2><p><code>INPUT teamName</code></p><p><code>INPUT teamScore</code></p></div>
           </article>
-          <article class="card swap-card" data-answer-context="Explain why you must trace every loop repetition. [2 marks]">
-            <div class="task-view"><h2>Push it further</h2><p>Why must each repetition of a loop appear in a trace table?</p></div>
-            <div class="answer swap-answer"><h2>Answer</h2><p>Variables can change on every repetition. Missing a row can give the wrong final value or output.</p></div>
+          <article class="card swap-card" data-answer-context="Explain one correction. [1 mark]">
+            <div class="task-view"><h2>Push it further</h2><p>Why is using separate variable names an improvement?</p></div>
+            <div class="answer swap-answer"><h2>Answer</h2><p>It prevents values being overwritten and makes the algorithm clearer.</p></div>
           </article>
         </div>
-        <aside class="reference"><h3>Use the words</h3><dl class="command"><dt>Variable</dt><dd>Stored value that can change.</dd><dt>Output</dt><dd>Value displayed by an algorithm.</dd><dt>Trace</dt><dd>Follow every instruction.</dd></dl></aside>
+        <aside class="reference"><h3>OCR reference language</h3><dl class="command"><dt>INPUT</dt><dd>Gets a value from the user.</dd><dt>←</dt><dd>Assigns a value to a variable.</dd><dt>OUTPUT</dt><dd>Displays a value.</dd></dl></aside>
       </div>
     </section>
 
     <section id="you-do" class="page you-do-page" data-phase="You Do" data-behaviour="Silent Working" data-response="">
-      <div class="page-head"><h1 class="you-do-title"><span class="title-kicker">Independent exam practice · 25 marks</span> — Show what you can do</h1><p class="lead">Adapted from OCR J277/02 2022, June 2023 and practice-paper trace-table material.</p></div>
+      <div class="page-head"><h1 class="you-do-title"><span class="title-kicker">Independent exam practice · 25 marks</span> — Show what you can do</h1><p class="lead">OCR J277/02 pseudocode questions adapted for classroom display. Use OCR Exam Reference Language.</p></div>
       <div class="grid question-list you-do-grid">
-        <article class="card question"><h3>Binary conversion <span class="marks">[4]</span></h3><p>Convert denary 38 into an 8-bit binary number.</p><div class="answer"><strong>Answer:</strong> <code>00100110</code>.</div></article>
-        <article class="card question"><h3>CPU <span class="marks">[4]</span></h3><p>State the purpose of the ALU, CU, cache and RAM.</p><div class="answer"><strong>Answer:</strong> ALU: arithmetic/logic; CU: controls CPU; cache: fast frequently used data/instructions; RAM: programs/data in use.</div></article>
-        <article class="card question"><h3>Data representation <span class="marks">[4]</span></h3><p>Explain why increasing a bitmap image’s resolution increases file size.</p><div class="answer"><strong>Answer:</strong> Higher resolution means more pixels; each pixel needs data, so more storage is needed.</div></article>
-        <article class="card question"><h3>Network <span class="marks">[4]</span></h3><p>Explain one difference between a switch and a router.</p><div class="answer"><strong>Answer:</strong> A switch connects devices within a LAN; a router connects different networks and routes data between them.</div></article>
-        <article class="card question"><h3>Algorithm <span class="marks">[4]</span></h3><p>State the condition needed before binary search and explain why.</p><div class="answer"><strong>Answer:</strong> The list must be ordered, so the algorithm can discard the half that cannot contain the target.</div></article>
-        <article class="card question"><h3>Target <span class="marks">[5]</span></h3><p>Choose one topic above that you found hardest. Write a specific Year 11 improvement target and explain why it is useful.</p><div class="answer"><strong>Possible answer:</strong> “Practise three binary conversions twice this week and check each using place values.” It is specific, repeated and checks the method rather than just rereading notes.</div></article>
+        <article class="card question"><h3>Inputs <span class="marks">[4]</span></h3><p>OCR J277/02 June 2024 Q5(f), adapted: write OCR ERL to input <code>teamName</code> and <code>teamScore</code>.</p><div class="answer"><strong>Mark-scheme answer:</strong> <code>INPUT teamName</code>; <code>INPUT teamScore</code>.</div></article>
+        <article class="card question"><h3>Selection <span class="marks">[4]</span></h3><p>OCR J277/02 past-paper pseudocode, adapted: output <code>"Pass"</code> when <code>mark &gt;= 40</code>; otherwise output <code>"Retry"</code>.</p><div class="answer"><strong>Mark-scheme answer:</strong> valid <code>IF mark &gt;= 40 THEN</code> selection, both outputs and <code>ENDIF</code>.</div></article>
+        <article class="card question"><h3>Loop correction <span class="marks">[4]</span></h3><p>OCR J277/02 June 2023 practice paper, adapted: write a <code>FOR</code> loop to output 1 to 5 inclusive.</p><div class="answer"><strong>Mark-scheme answer:</strong> valid <code>FOR number ← 1 TO 5</code>, output, and matching <code>NEXT number</code>.</div></article>
+        <article class="card question"><h3>Meaningful variables <span class="marks">[4]</span></h3><p>OCR J277/02 past-paper programming task, adapted: replace <code>a</code> and <code>b</code> with meaningful names for a quiz answer and score. Explain why.</p><div class="answer"><strong>Mark-scheme answer:</strong> e.g. <code>userAnswer</code> and <code>score</code>; clearer and easier to maintain/debug.</div></article>
+        <article class="card question"><h3>Logic correction <span class="marks">[4]</span></h3><p>OCR J277/02 June 2024 Q5(f), adapted: add 1 to <code>score</code> only when <code>answer = correctAnswer</code>.</p><div class="answer"><strong>Mark-scheme answer:</strong> valid <code>IF</code> selection containing <code>score ← score + 1</code> and <code>ENDIF</code>.</div></article>
+        <article class="card question"><h3>Improve an algorithm <span class="marks">[5]</span></h3><p>OCR J277/02 past-paper pseudocode, adapted: input three scores, add them to <code>total</code>, then output <code>total</code>.</p><div class="answer"><strong>Mark-scheme answer:</strong> initialise <code>total ← 0</code>; valid loop; input score; update total; output total.</div></article>
       </div>
     </section>
 
     <section id="vocabulary" class="page" data-phase="Key Vocabulary" data-behaviour="Listening" data-response="Choral Response">
       <div class="vocab-head"><h1><span class="title-kicker">Precision matters</span> — Say it like a computer scientist</h1><p class="lead">Click once to reveal one hidden word or definition.</p></div>
       <dl class="vocab">
-        <div><dt>Retrieval</dt><dd>Trying to remember knowledge without notes.</dd></div>
-        <div><dt>Baseline</dt><dd>A starting check of current knowledge and skills.</dd></div>
-        <div><dt>Command word</dt><dd>The instruction telling you how to answer.</dd></div>
-        <div><dt>Working</dt><dd>The method or evidence used to reach an answer.</dd></div>
-        <div><dt>Misconception</dt><dd>An incorrect idea that needs correcting.</dd></div>
-        <div><dt>Target</dt><dd>A precise action for improvement.</dd></div>
-        <div><dt>Revision</dt><dd>Retrieval, practice and feedback to strengthen learning.</dd></div>
+        <div><dt>Assignment</dt><dd>Storing a value in a variable using ←.</dd></div>
+        <div><dt>Variable</dt><dd>A named storage location whose value can change.</dd></div>
+        <div><dt>Selection</dt><dd>Choosing instructions based on a condition.</dd></div>
+        <div><dt>Iteration</dt><dd>Repeating instructions using a loop.</dd></div>
+        <div><dt>Indentation</dt><dd>Layout that shows which instructions belong together.</dd></div>
+        <div><dt>Logic error</dt><dd>An error where code runs but does the wrong thing.</dd></div>
+        <div><dt>OCR Exam Reference Language</dt><dd>OCR’s required pseudocode notation for exam answers.</dd></div>
       </dl>
     </section>
 
