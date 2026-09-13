@@ -26,7 +26,14 @@
     <p class="note">The October AP1 papers assess Numbers, bitmap images, sound, secondary storage, CPU/registers, searching/sorting/arrays, abstraction, programming constructs, validation, testing and defensive design. Therefore these are taught before AP1 rather than left for later in the year.</p>
     <h2>Lesson-by-lesson sequence</h2>
     <p class="small">Each half-term is shown separately. The first thirteen rows are the amended Autumn sequence, including the three Numbers lessons already taught.</p>
-    <div id="tables"></div>
+    <section id="tables">
+      <h2>Autumn 1</h2><table><thead><tr><th>Lesson</th><th>Learning Objectives</th><th>Substantive Knowledge</th><th>Disciplinary Knowledge</th><th>Key Vocabulary</th><th>Common Misconceptions</th><th>Adaptive Teaching</th><th>Assessment for Learning</th></tr></thead><tbody id="term-0"></tbody></table>
+      <h2>Autumn 2</h2><table><thead><tr><th>Lesson</th><th>Learning Objectives</th><th>Substantive Knowledge</th><th>Disciplinary Knowledge</th><th>Key Vocabulary</th><th>Common Misconceptions</th><th>Adaptive Teaching</th><th>Assessment for Learning</th></tr></thead><tbody id="term-1"></tbody></table>
+      <h2>Spring 1</h2><table><thead><tr><th>Lesson</th><th>Learning Objectives</th><th>Substantive Knowledge</th><th>Disciplinary Knowledge</th><th>Key Vocabulary</th><th>Common Misconceptions</th><th>Adaptive Teaching</th><th>Assessment for Learning</th></tr></thead><tbody id="term-2"></tbody></table>
+      <h2>Spring 2</h2><table><thead><tr><th>Lesson</th><th>Learning Objectives</th><th>Substantive Knowledge</th><th>Disciplinary Knowledge</th><th>Key Vocabulary</th><th>Common Misconceptions</th><th>Adaptive Teaching</th><th>Assessment for Learning</th></tr></thead><tbody id="term-3"></tbody></table>
+      <h2>Summer 1</h2><table><thead><tr><th>Lesson</th><th>Learning Objectives</th><th>Substantive Knowledge</th><th>Disciplinary Knowledge</th><th>Key Vocabulary</th><th>Common Misconceptions</th><th>Adaptive Teaching</th><th>Assessment for Learning</th></tr></thead><tbody id="term-4"></tbody></table>
+      <h2>Summer 2</h2><table><thead><tr><th>Lesson</th><th>Learning Objectives</th><th>Substantive Knowledge</th><th>Disciplinary Knowledge</th><th>Key Vocabulary</th><th>Common Misconceptions</th><th>Adaptive Teaching</th><th>Assessment for Learning</th></tr></thead><tbody id="term-5"></tbody></table>
+    </section>
   </main>
   <script>
     const lessons = [
@@ -125,13 +132,13 @@
     function genericDetail(focus,spec,purpose){return [
       `Understand and apply ${focus.toLowerCase()}.`,purpose,`Use accurate ${spec} terminology and apply it in context.`,spec,'Students may rely on vague vocabulary or choose a method without checking the scenario.','Use a worked example, then remove scaffolding gradually.','Short retrieval followed by an exam-style application question.'
     ]}
-    document.getElementById('tables').innerHTML=termMap.map(([term,start,end])=>{
+    termMap.forEach(([term,start,end],index)=>{
       const rows=lessons.filter(([n])=>n>=start&&n<=end).map(([n,focus,spec,purpose])=>{
         const [objective,substantive,disciplinary,vocab,misconception,adaptive,afl]=detail[n]||genericDetail(focus,spec,purpose);
         return `<tr class="${n<=13?'ap1':n>=63?'later':''}"><td>${String(n).padStart(3,'0')}</td><td>${objective}</td><td>${substantive}</td><td>${disciplinary}</td><td>${vocab}</td><td>${misconception}</td><td>${adaptive}</td><td>${afl}</td></tr>`;
       }).join('');
-      return `<h2>${term}</h2><table><thead><tr><th>Lesson</th><th>Learning Objectives</th><th>Substantive Knowledge</th><th>Disciplinary Knowledge</th><th>Key Vocabulary</th><th>Common Misconceptions</th><th>Adaptive Teaching</th><th>Assessment for Learning</th></tr></thead><tbody>${rows}</tbody></table>`;
-    }).join('');
+      document.getElementById(`term-${index}`).innerHTML=rows;
+    });
   </script>
 </body>
 </html>
