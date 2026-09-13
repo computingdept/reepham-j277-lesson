@@ -25,7 +25,8 @@
     <h2>Assessment Point 1 alignment</h2>
     <p class="note">The October AP1 papers assess Numbers, bitmap images, sound, secondary storage, CPU/registers, searching/sorting/arrays, abstraction, programming constructs, validation, testing and defensive design. Therefore these are taught before AP1 rather than left for later in the year.</p>
     <h2>Lesson-by-lesson sequence</h2>
-    <table><thead><tr><th>Lesson</th><th>Current lesson focus</th><th>J277 link</th><th>Purpose / preparation</th></tr></thead><tbody id="rows"></tbody></table>
+    <p class="small">Each half-term is shown separately. The first thirteen rows are the amended Autumn sequence, including the three Numbers lessons already taught.</p>
+    <div id="tables"></div>
   </main>
   <script>
     const lessons = [
@@ -102,7 +103,35 @@
       [71,'Year 11 preparation','Full Year 10','Identify core knowledge to retain.'],
       [72,'Year 10 reflection and transition','Full Year 10','Personal targets and Year 11 action plan.']
     ];
-    document.getElementById('rows').innerHTML=lessons.map(([n,focus,spec,purpose])=>`<tr class="${n<=13?'ap1':n>=63?'later':''}"><td>${String(n).padStart(3,'0')}</td><td>${focus}</td><td>${spec}</td><td>${purpose}</td></tr>`).join('');
+    const termMap = [
+      ['Autumn 1',1,13],['Autumn 2',14,24],['Spring 1',25,36],
+      ['Spring 2',37,51],['Summer 1',52,62],['Summer 2',63,72]
+    ];
+    const detail = {
+      1:['Convert positive denary whole numbers to up to 8-bit binary and vice versa.','Binary place values 128–1; leading zeroes; 0–255 range.','Use a place-value method and check by converting back.','Denary, binary, bit, byte, place value, MSB, LSB.','Binary is read from right to left; leading zeroes change a value.','Use place-value grids and completed first examples.','MWB conversions; short exam-style conversion questions.'],
+      2:['Add two 8-bit binary integers and explain overflow.','Binary addition, carrying, stored result and 8-bit maximum 255.','Show a column method and explain a ninth carry bit precisely.','Binary addition, carry, overflow, 8-bit range, stored result.','1 + 1 equals 2 rather than binary 10; overflow means any incorrect answer.','Model one column at a time; give carry scaffolds.','Trace addition; explain whether a result overflows.'],
+      3:['Convert between denary, binary and two-digit hexadecimal; carry out binary shifts.','Hex digits 0–9/A–F; nibbles; left/right shifts and lost bits.','Group binary into nibbles and show shift movement accurately.','Hexadecimal, nibble, left shift, right shift, MSB, LSB.','Hex is a different value system; right shift always gives an exact half.','Use hex lookup grid and animated/physical bit movement.','Mixed conversion and shift questions.'],
+      4:['Explain bitmap images and calculate file size.','Pixels, resolution, colour depth and bitmap file-size calculation.','Select the correct values and show calculation working.','Pixel, resolution, colour depth, bitmap, file size.','Resolution means physical screen size; colour depth is number of colours.','Use labelled image grids and formula scaffolds.','Define pixel; calculate image file size.'],
+      5:['Explain how sound is stored and how quality/file size changes.','Sampling, sample rate, bit depth, amplitude and Hertz.','Use accurate cause-and-effect explanations.','Analogue, sample, sample rate, bit depth, amplitude, Hertz.','Sample rate and bit depth mean the same thing.','Use wave diagrams and sentence stems.','Complete sound-representation exam questions.'],
+      6:['Compare storage devices and calculate capacity.','Optical, magnetic and solid-state storage; bits to terabytes.','Select and justify storage for a scenario.','Secondary storage, capacity, optical, magnetic, solid-state.','A larger capacity always makes a device best.','Use comparison grids and capacity ladders.','Scenario selection and unit conversion.'],
+      7:['Describe CPU components and factors affecting performance.','ALU, control unit, cache, registers, clock speed, cores and cache size.','Apply a CPU feature to a real situation.','CPU, ALU, control unit, cache, register, clock speed, core.','Cache is RAM; more cores always helps every task.','Use labelled diagrams and familiar embedded examples.','Label CPU and explain a performance factor.'],
+      8:['Explain fetch-decode-execute and register roles.','MAR, MDR, Program Counter and Accumulator.','Sequence a technical process using exact terminology.','Fetch, decode, execute, MAR, MDR, Program Counter, Accumulator.','All registers store the same thing.','Use step cards and one register at a time.','Sequence cycle; describe one register.'],
+      9:['Recognise and trace searches, sorts and arrays.','Linear/binary search; bubble/insertion/merge sort; fixed-length arrays.','Follow steps rather than guess outcomes.','Array, index, linear search, binary search, bubble sort, insertion sort, merge sort.','Binary search works on an unsorted list.','Use physical cards and partially completed traces.','Identify/trace algorithms and array properties.'],
+      10:['Use programming foundations and selection.','Variables, inputs, outputs, assignment, operators, data types and IF/ELSE.','Trace and write precise simple algorithms.','Variable, assignment, input, output, selection, condition, data type.','A variable cannot change; one equals sign is comparison.','Use worked code and decision diagrams.','Predict output; complete a selection algorithm.'],
+      11:['Use iteration and defensive design, validation and test data.','FOR/WHILE; authentication; validation; normal, boundary and erroneous data.','Design, test and improve a short algorithm.','Iteration, validation, authentication, normal, boundary, erroneous, test data.','Validation proves an input is correct; testing is done only once.','Provide test-plan templates and model first loop.','Write/trace a loop; choose test data.'],
+      12:['Retrieve and apply AP1 knowledge using exam questions.','All AP1 content from lessons 1–11.','Select the appropriate method and improve responses from mark schemes.','Retrieve, command word, explain, calculate, justify.','Revision is rereading rather than retrieval and application.','Target questions from earlier checks.','Timed mixed AP1 practice.'],
+      13:['Demonstrate AP1 knowledge and identify next steps.','AP1 Paper 1 and Paper 2 content.','Use feedback to diagnose a specific misconception.','Assessment, feedback, misconception, target.','A low mark means every topic is weak.','Provide item-level feedback and correction support.','AP1 assessment and personal target.']
+    };
+    function genericDetail(focus,spec,purpose){return [
+      `Understand and apply ${focus.toLowerCase()}.`,purpose,`Use accurate ${spec} terminology and apply it in context.`,spec,'Students may rely on vague vocabulary or choose a method without checking the scenario.','Use a worked example, then remove scaffolding gradually.','Short retrieval followed by an exam-style application question.'
+    ]}
+    document.getElementById('tables').innerHTML=termMap.map(([term,start,end])=>{
+      const rows=lessons.filter(([n])=>n>=start&&n<=end).map(([n,focus,spec,purpose])=>{
+        const [objective,substantive,disciplinary,vocab,misconception,adaptive,afl]=detail[n]||genericDetail(focus,spec,purpose);
+        return `<tr class="${n<=13?'ap1':n>=63?'later':''}"><td>${String(n).padStart(3,'0')}</td><td>${objective}</td><td>${substantive}</td><td>${disciplinary}</td><td>${vocab}</td><td>${misconception}</td><td>${adaptive}</td><td>${afl}</td></tr>`;
+      }).join('');
+      return `<h2>${term}</h2><table><thead><tr><th>Lesson</th><th>Learning Objectives</th><th>Substantive Knowledge</th><th>Disciplinary Knowledge</th><th>Key Vocabulary</th><th>Common Misconceptions</th><th>Adaptive Teaching</th><th>Assessment for Learning</th></tr></thead><tbody>${rows}</tbody></table>`;
+    }).join('');
   </script>
 </body>
 </html>
