@@ -577,18 +577,18 @@
     </section>
 
     <section id="i-do" class="page i-do-page" data-phase="I Do" data-behaviour="Listening" data-response="MWB">
-      <div class="page-head"><div class="eyebrow">Turn knowledge into marks · OCR-style practice</div><p class="lead"><strong>Question:</strong> Trace the algorithm: <code>total ← 0; FOR n ← 1 TO 3; total ← total + n; NEXT n; OUTPUT total</code>. <span class="marks">[5 marks]</span></p></div>
+      <div class="page-head"><div class="eyebrow">Turn knowledge into marks · OCR J277/02 Practice Paper 2023 Q1(d) (adapted)</div><p class="lead"><strong>Question:</strong> Trace: <code>start ← 3; DO; OUTPUT start; start ← start − 1; UNTIL start = −1; OUTPUT "Finished"</code>. <span class="marks">[4 marks]</span></p></div>
       <div class="sticky-layout">
         <div class="card think-swap-card">
           <div class="think-task"><div class="steps">
-            <div class="model-step"><div><h3>Step 1 — initialise</h3><p>Set <code>total</code> to 0.</p></div></div>
-            <div class="model-step"><div><h3>Step 2 — trace each loop</h3><p>n = 1: total = 1. n = 2: total = 3. n = 3: total = 6.</p></div></div>
-            <div class="model-step"><div><h3>Step 3 — record output</h3><p>The final output is <strong>6</strong>.</p></div></div>
+            <div class="model-step"><div><h3>Step 1 — start value</h3><p><code>start</code> begins as 3. The loop outputs 3, then reduces it to 2.</p></div></div>
+            <div class="model-step"><div><h3>Step 2 — repeat the loop</h3><p>The next outputs are 2, 1 and 0. After outputting 0, <code>start</code> becomes −1.</p></div></div>
+            <div class="model-step"><div><h3>Step 3 — condition and final output</h3><p>The condition is now true, so the loop ends and outputs <code>Finished</code>.</p></div></div>
           </div></div>
           <button class="think" type="button" aria-expanded="false">Let’s think…</button>
           <div class="think-panel">
-            <div class="answer-context">Trace total and n, then state the output. [5 marks]</div>
-            <div class="exam-answer"><p><strong>n:</strong> 1, 2, 3. <strong>total:</strong> 1, 3, 6.</p><p><strong>Output: 6</strong>.</p></div>
+            <div class="answer-context">Trace start and record every output. [4 marks]</div>
+            <div class="exam-answer"><p><strong>start:</strong> 3, 2, 1, 0, −1.</p><p><strong>Output:</strong> 3, 2, 1, 0, Finished.</p></div>
           </div>
         </div>
         <aside class="reference"><h3>Trace check</h3><ol><li>Write starting values.</li><li>Follow every line.</li><li>Record changes in order.</li><li>State the output.</li></ol></aside>
@@ -596,7 +596,7 @@
     </section>
 
     <section id="we-do" class="page" data-phase="We Do" data-behaviour="Quiet Working" data-response="MWB">
-      <div class="page-head"><div class="eyebrow">Improve the answer together · OCR-style practice</div><p class="lead"><strong>Question:</strong> Trace <code>score ← 2; score ← score × 3; OUTPUT score</code>. <span class="marks">[3 marks]</span></p></div>
+      <div class="page-head"><div class="eyebrow">Improve the answer together · OCR J277/02 June 2022 Q1 (adapted)</div><p class="lead"><strong>Question:</strong> Complete a trace table for a short algorithm and record each output. <span class="marks">[3 marks]</span></p></div>
       <div class="sticky-layout">
         <div class="grid">
           <article class="card swap-card" data-answer-context="Trace score and state the output. [3 marks]">
@@ -613,7 +613,7 @@
     </section>
 
     <section id="you-do" class="page you-do-page" data-phase="You Do" data-behaviour="Silent Working" data-response="">
-      <div class="page-head"><h1 class="you-do-title"><span class="title-kicker">Independent baseline · 25 marks</span> — Show what you can do</h1><p class="lead">OCR-style Year 10 retrieval. Attempt every question from memory before checking.</p></div>
+      <div class="page-head"><h1 class="you-do-title"><span class="title-kicker">Independent exam practice · 25 marks</span> — Show what you can do</h1><p class="lead">Adapted from OCR J277/02 2022, June 2023 and practice-paper trace-table material.</p></div>
       <div class="grid question-list you-do-grid">
         <article class="card question"><h3>Binary conversion <span class="marks">[4]</span></h3><p>Convert denary 38 into an 8-bit binary number.</p><div class="answer"><strong>Answer:</strong> <code>00100110</code>.</div></article>
         <article class="card question"><h3>CPU <span class="marks">[4]</span></h3><p>State the purpose of the ALU, CU, cache and RAM.</p><div class="answer"><strong>Answer:</strong> ALU: arithmetic/logic; CU: controls CPU; cache: fast frequently used data/instructions; RAM: programs/data in use.</div></article>
