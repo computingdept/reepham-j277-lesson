@@ -296,7 +296,7 @@
     }
     .think[aria-expanded="true"] + .think-panel { display: block; }
     .model-step { display: none; }
-    .model-step.step-visible { display: block; }
+    .model-step.step-visible { display: grid; }
     .i-do-page .think { display: none; }
 
     .sticky-layout { display: grid; grid-template-columns: minmax(0, 2.15fr) minmax(270px, .85fr); gap: 1rem; align-items: start; }
@@ -307,7 +307,8 @@
     .command dd { margin: 0; }
 
     .steps { counter-reset: model; display: grid; gap: .75rem; }
-    .model-step { counter-increment: model; display: grid; grid-template-columns: 3rem 1fr; gap: .7rem; align-items: start; }
+    .model-step { counter-increment: model; display: none; grid-template-columns: 3rem 1fr; gap: .7rem; align-items: start; }
+    .model-step.step-visible { display: grid; }
     .model-step::before {
       content: counter(model); width: 2.4rem; height: 2.4rem; display: grid; place-items: center;
       background: var(--reepham); color: white; border-radius: 50%; font-weight: 900;
