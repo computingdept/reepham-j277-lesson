@@ -297,6 +297,7 @@
     .think[aria-expanded="true"] + .think-panel { display: block; }
     .model-step { display: none; }
     .model-step.step-visible { display: block; }
+    .i-do-page .think { display: none; }
 
     .sticky-layout { display: grid; grid-template-columns: minmax(0, 2.15fr) minmax(270px, .85fr); gap: 1rem; align-items: start; }
     .reference { position: sticky; top: 170px; background: #fff; border: 2px solid #b8d4c6; border-radius: .75rem; padding: .72rem; box-shadow: var(--shadow); }
@@ -784,10 +785,14 @@
     function advancePresentation() {
       const active = document.querySelector('.page.active');
       if (!active) return;
-      if (active.id === 'i-do' && modelStepIndex < modelSteps.length - 1) {
-        modelStepIndex += 1;
-        modelSteps[modelStepIndex].classList.add('step-visible');
-        return;
+      if (active.id === 'i-do') {
+        if (modelStepIndex < modelSteps.length - 1) {
+          modelStepIndex += 1;
+          modelSteps[modelStepIndex].classList.add('step-visible');
+          return;
+        }
+        const modelAnswer = active.querySelector('.think[aria-expanded="false"]');
+        if (modelAnswer) { modelAnswer.click(); return; }
       }
       if (active.id === 'vocabulary') {
         const nextCard = vocabCards.find(card => !card.classList.contains('vocab-revealed'));
