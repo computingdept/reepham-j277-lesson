@@ -554,7 +554,7 @@
         <article class="card question"><h3>Algorithm</h3><p>What is an algorithm?</p><textarea class="write-lines" aria-label="Algorithm retrieval"></textarea><div class="answer"><strong>Answer:</strong> An ordered set of instructions for solving a problem.</div></article>
         <article class="card question"><h3>Trace table</h3><p>Why should you trace one instruction at a time?</p><textarea class="write-lines" aria-label="Trace retrieval"></textarea><div class="answer"><strong>Answer:</strong> Values may change on each line; skipping lines can give the wrong result.</div></article>
         <article class="card question"><h3>Loop</h3><p>What does iteration mean?</p><textarea class="write-lines" aria-label="Iteration retrieval"></textarea><div class="answer"><strong>Answer:</strong> Repeating instructions.</div></article>
-        <article class="card question"><h3>High challenge <span class="challenge-tag">High Challenge</span></h3><p>Why is indentation useful in pseudocode?</p><textarea class="write-lines" aria-label="Indentation retrieval"></textarea><div class="answer"><strong>Answer:</strong> It makes the structure clear, especially which lines belong inside a selection or loop.</div></article>
+        <article class="card question"><h3>High challenge <span class="challenge-tag">High Challenge</span></h3><p>A trace table shows <code>total ← 0</code>, then <code>total ← total + 4</code>, then <code>total ← total + 3</code>. What is the final value of <code>total</code>?</p><textarea class="write-lines" aria-label="High challenge retrieval"></textarea><div class="answer"><strong>Answer:</strong> <code>7</code>. The value changes one line at a time: 0, then 4, then 7.</div></article>
       </div>
     </section>
 
@@ -569,26 +569,31 @@
 
     <section id="new-learning" class="page" data-phase="New Learning" data-behaviour="Listening" data-response="Cold Calling">
       <div class="grid three">
-        <article class="card accent learning-group"><h2>Assignment</h2><p><code>score ← score + 1</code> calculates a new value and replaces the old value.</p></article>
-        <article class="card accent learning-group"><h2>Selection</h2><p>Use <code>IF</code>, <code>THEN</code>, <code>ELSE</code> and indentation so the chosen branch is clear.</p></article>
-        <article class="card accent learning-group"><h2>Iteration</h2><p>Use clear start/end conditions and suitable loop structures.</p></article>
+        <article class="card accent learning-group"><h2>Read the purpose</h2><p>Before changing a line, say what the algorithm is meant to do.</p></article>
+        <article class="card accent learning-group"><h2>Trace precisely</h2><p>Follow each line in order. Record values and outputs; do not guess the next value.</p></article>
+        <article class="card accent learning-group"><h2>Refine, do not rewrite</h2><p>Identify the faulty line, then make the smallest correction that restores the intended outcome.</p></article>
       </div>
-      <div class="quick-rules"><div><strong>Read:</strong> follow order and indentation.</div><div><strong>Logic:</strong> check conditions and loop boundaries.</div><div><strong>Clarity:</strong> use meaningful variable names.</div></div>
+      <div class="quick-rules"><div><strong>Assignment:</strong> a new value must be stored back into the variable.</div><div><strong>Arrays:</strong> a 0-indexed array starts at index <code>0</code>.</div><div><strong>Iteration:</strong> check when the condition is tested and when the loop ends.</div></div>
     </section>
 
     <section id="i-do" class="page i-do-page" data-phase="I Do" data-behaviour="Listening" data-response="MWB">
-      <div class="page-head"><div class="eyebrow">Turn knowledge into marks · OCR ExamBuilder export Q1</div><p class="lead"><strong>Question:</strong> Store <code>"Hello"</code> in <code>word1</code>, <code>"Everyone"</code> in <code>word2</code>, then concatenate them into <code>message</code>. <span class="marks">[3 marks]</span></p></div>
+      <div class="page-head"><div class="eyebrow">Turn knowledge into marks · OCR ExamBuilder export Q2(c)</div><p class="lead"><strong>Question:</strong> Trace the pseudocode. It starts at <code>3</code>, outputs the value, subtracts <code>1</code> and stops when <code>start = -1</code>. <span class="marks">[3 marks]</span></p></div>
       <div class="sticky-layout">
         <div class="card think-swap-card">
-          <div class="think-task"><div class="steps">
-            <div class="model-step"><div><h3>Step 1 — first assignment</h3><p><code>word1 ← "Hello"</code></p></div></div>
-            <div class="model-step"><div><h3>Step 2 — second assignment</h3><p><code>word2 ← "Everyone"</code></p></div></div>
-            <div class="model-step"><div><h3>Step 3 — concatenate and store</h3><p>Use <code>+</code> to join the strings into <code>message</code>.</p></div></div>
+          <div class="think-task"><pre class="code">01 start ← 3
+02 DO
+03   OUTPUT start
+04   start ← start - 1
+05 UNTIL start = -1
+06 OUTPUT "Finished"</pre><div class="steps">
+            <div class="model-step"><div><h3>Step 1 — write the starting value</h3><p><code>start ← 3</code>, so the first output is <code>3</code>.</p></div></div>
+            <div class="model-step"><div><h3>Step 2 — follow the order</h3><p>After each output, subtract 1: the next values are <code>2</code>, <code>1</code> and <code>0</code>.</p></div></div>
+            <div class="model-step"><div><h3>Step 3 — test after subtracting</h3><p>When <code>start</code> becomes <code>-1</code>, the loop stops. It is not output.</p></div></div>
           </div></div>
           <button class="think" type="button" aria-expanded="false">Let’s think…</button>
           <div class="think-panel">
-            <div class="answer-context">OCR ExamBuilder export Q1 · 3 marks</div>
-            <div class="exam-answer"><p><code>word1 ← "Hello"</code></p><p><code>word2 ← "Everyone"</code></p><p><code>message ← word1 + word2</code></p></div>
+            <div class="answer-context">OCR ExamBuilder export Q2(c) · 3 marks</div>
+            <div class="exam-answer"><p><strong>Outputs:</strong> <code>3, 2, 1, 0, Finished</code></p><p><strong>Important:</strong> <code>-1</code> is never output because the condition is tested before the next print.</p></div>
           </div>
         </div>
         <aside class="reference"><h3>Pseudocode check</h3><ol><li>Read the purpose.</li><li>Check each input and variable.</li><li>Check condition and loop boundaries.</li><li>Make the smallest correction.</li></ol></aside>
@@ -596,16 +601,20 @@
     </section>
 
     <section id="we-do" class="page" data-phase="We Do" data-behaviour="Quiet Working" data-response="MWB">
-      <div class="page-head"><div class="eyebrow">Improve the answer together · OCR ExamBuilder export Q2(a–b)</div><p class="lead"><strong>Question:</strong> Store the sum of <code>num1</code> and <code>num2</code> in <code>total</code>, then complete the missing arithmetic operators. <span class="marks">[4 marks]</span></p></div>
+      <div class="page-head"><div class="eyebrow">Improve the answer together · OCR ExamBuilder export Q3</div><p class="lead"><strong>Question:</strong> This pseudocode should total every value in the 0-indexed array <code>scores</code>. Identify the two logic errors and refine the lines. <span class="marks">[4 marks]</span></p></div>
       <div class="sticky-layout">
         <div class="grid">
-          <article class="card swap-card" data-answer-context="Store num1 + num2 in total. [1 mark]">
-            <div class="task-view"><h2>Weak answer</h2><p><code>total ← num1</code></p><p>Improve it so both integer values are added.</p><textarea class="write-lines" aria-label="Improved pseudocode"></textarea></div>
-            <div class="answer swap-answer"><h2>Mark-scheme answer</h2><p><code>total ← num1 + num2</code></p></div>
+          <article class="card swap-card" data-answer-context="Identify and correct the two logic errors. [4 marks]">
+            <div class="task-view"><h2>Read before you refine</h2><pre class="code">01 total ← 0
+02 FOR scoreCount ← 1 TO scores.length - 1
+03   scores[scoreCount] ← total + total
+04 NEXT scoreCount
+05 OUTPUT total</pre><p>Which two lines stop this from adding every score correctly?</p><textarea class="write-lines" aria-label="Corrected lines for scores algorithm"></textarea></div>
+            <div class="answer swap-answer"><h2>Mark-scheme answer</h2><p><code>02 FOR scoreCount ← 0 TO scores.length - 1</code></p><p><code>03 total ← total + scores[scoreCount]</code></p></div>
           </article>
-          <article class="card swap-card" data-answer-context="Supply power, modulus and subtraction operators. [3 marks]">
-            <div class="task-view"><h2>Push it further</h2><p>Complete: <code>12 ___ 2</code>; <code>number ___ 2 == 0</code>; <code>measurement1 ___ measurement2</code>.</p></div>
-            <div class="answer swap-answer"><h2>Mark-scheme answer</h2><p><code>^</code> (or <code>**</code>), <code>MOD</code>, <code>-</code>.</p></div>
+          <article class="card swap-card" data-answer-context="Explain why both lines need correcting. [2 marks]">
+            <div class="task-view"><h2>Explain the fixes</h2><p>Why must the loop start at <code>0</code>, and why must the current score be added to <code>total</code>?</p></div>
+            <div class="answer swap-answer"><h2>Answer</h2><p>Index <code>0</code> stores the first value, so starting at <code>1</code> misses it. The running total must add <code>scores[scoreCount]</code>; adding <code>total</code> to itself does not use the array value.</p></div>
           </article>
         </div>
         <aside class="reference"><h3>OCR reference language</h3><dl class="command"><dt>INPUT</dt><dd>Gets a value from the user.</dd><dt>←</dt><dd>Assigns a value to a variable.</dd><dt>OUTPUT</dt><dd>Displays a value.</dd></dl></aside>
@@ -613,21 +622,14 @@
     </section>
 
     <section id="you-do" class="page you-do-page" data-phase="You Do" data-behaviour="Silent Working" data-response="">
-      <div class="page-head"><h1 class="you-do-title"><span class="title-kicker">Independent exam practice · 25 marks</span> — Show what you can do</h1><p class="lead">OCR ExamBuilder questions and mark-scheme points, arranged for classroom display. Use OCR Exam Reference Language.</p></div>
+      <div class="page-head"><h1 class="you-do-title"><span class="title-kicker">Independent exam practice · 25 marks</span> — Show what you can do</h1><p class="lead">Genuine OCR ExamBuilder questions, arranged for one classroom screen. Use OCR Exam Reference Language where pseudocode is required.</p></div>
       <div class="grid question-list you-do-grid">
-        <article class="card question"><h3>Concatenation <span class="marks">[3]</span></h3><p>OCR ExamBuilder export Q1: store <code>"Hello"</code> and <code>"Everyone"</code>, then concatenate them into <code>message</code>.</p><div class="answer"><strong>Mark-scheme answer:</strong> correct assignments to <code>word1</code> and <code>word2</code>; then <code>message ← word1 + word2</code>.</div></article>
-        <article class="card question"><h3>Assignment <span class="marks">[1]</span></h3><p>OCR ExamBuilder export Q2(a): add <code>num1</code> and <code>num2</code>, storing the result in <code>total</code>.</p><div class="answer"><strong>Mark-scheme answer:</strong> <code>total ← num1 + num2</code>.</div></article>
-        <article class="card question"><h3>Operators <span class="marks">[3]</span></h3><p>OCR ExamBuilder export Q2(b): supply the operators for power, modulus and subtraction.</p><div class="answer"><strong>Mark-scheme answer:</strong> <code>^</code> (or <code>**</code>), <code>MOD</code>, <code>-</code>.</div></article>
-        <article class="card question"><h3>Logic errors <span class="marks">[4]</span></h3><p>OCR ExamBuilder export Q3: correct two logic errors in code intended to total every value in <code>scores</code>.</p><pre class="code">total ← 0
-FOR scoreCount ← 1 TO scores.length - 1
-  total ← total + total
-NEXT scoreCount
-OUTPUT total</pre><div class="answer"><strong>Mark-scheme answer:</strong> begin at index <code>0</code>; use <code>total ← total + scores[scoreCount]</code>. Both corrections are needed.</div></article>
-        <article class="card question"><h3>Increment <span class="marks">[1]</span></h3><p>OCR ExamBuilder export Q5: increment the value in <code>score</code> by one.</p><div class="answer"><strong>Mark-scheme answer:</strong> <code>score ← score + 1</code>.</div></article>
-        <article class="card question"><h3>Iteration <span class="marks">[5]</span></h3><p>OCR ExamBuilder export Q7(ii): input 10 values, count how many are over 50, then output the count.</p><div class="answer"><strong>Mark-scheme answer:</strong> initialise count; valid loop of 10; input value; selection <code>value &gt; 50</code>; increment and output count.</div></article>
-        <article class="card question"><h3>Trace a loop <span class="marks">[3]</span></h3><p>OCR ExamBuilder export Q2(c): trace the loop that starts at 3, outputs the value, subtracts 1 and stops when <code>start = -1</code>. State every output.</p><div class="answer"><strong>Mark-scheme answer:</strong> <code>3</code>, <code>2</code>, <code>1</code>, <code>0</code>, then <code>Finished</code>. Do not output <code>-1</code>.</div></article>
-        <article class="card question"><h3>Read sorting pseudocode <span class="marks">[4]</span></h3><p>OCR ExamBuilder export Q4(a–b): explain the purpose of <code>temp</code> in insertion-sort pseudocode and why its inner loop needs a condition.</p><div class="answer"><strong>Mark-scheme points:</strong> <code>temp</code> stores the item being inserted while values move; the condition prevents the loop running past the start and stops once the correct position is found.</div></article>
-        <article class="card question"><h3>Improve an assignment <span class="marks">[1]</span></h3><p><em>OCR-style extension based on ExamBuilder Q5.</em> The value of <code>attempts</code> must increase by one. Write the assignment statement.</p><div class="answer"><strong>Answer:</strong> <code>attempts ← attempts + 1</code>.</div></article>
+        <article class="card question"><h3>Write and read expressions <span class="marks">[7]</span></h3><p><strong>OCR ExamBuilder Q1 and Q2(a-b).</strong> Store <code>"Hello"</code> in <code>word1</code>, <code>"Everyone"</code> in <code>word2</code>, then concatenate them into <code>message</code>. Then write the line that stores <code>num1 + num2</code> in <code>total</code>, and supply operators for power, modulus and subtraction.</p><div class="answer"><strong>Mark-scheme points:</strong> correct assignments to <code>word1</code> and <code>word2</code>; <code>message ← word1 + word2</code>; <code>total ← num1 + num2</code>; <code>^</code> or <code>**</code>; <code>MOD</code> or <code>%</code>; <code>-</code>.</div></article>
+        <article class="card question"><h3>Trace a loop <span class="marks">[3]</span></h3><p><strong>OCR ExamBuilder Q2(c).</strong> Trace the loop that starts at <code>3</code>, prints the value, subtracts <code>1</code>, then stops when <code>start = -1</code>. Include all outputs.</p><div class="answer"><strong>Mark-scheme answer:</strong> <code>3, 2, 1, 0, Finished</code>. Do not output <code>-1</code>.</div></article>
+        <article class="card question"><h3>Identify and refine logic errors <span class="marks">[4]</span></h3><p><strong>OCR ExamBuilder Q3.</strong> A pseudocode algorithm totals a 0-indexed array called <code>scores</code>. Identify two logic errors and write corrected lines.</p><div class="answer"><strong>Mark-scheme answer:</strong> change the loop start to <code>0</code>; change the calculation to <code>total ← total + scores[scoreCount]</code>.</div></article>
+        <article class="card question"><h3>Read insertion-sort pseudocode <span class="marks">[4]</span></h3><p><strong>OCR ExamBuilder Q4(a-b).</strong> Explain the purpose of <code>temp</code>, then explain why the inner loop needs to be condition-controlled.</p><div class="answer"><strong>Mark-scheme points:</strong> <code>temp</code> stores the current name/value so it can be moved without being lost; the number of moves is not known in advance, and the loop stops when the value reaches its correct position.</div></article>
+        <article class="card question"><h3>Compare sorting algorithms <span class="marks">[2]</span></h3><p><strong>OCR ExamBuilder Q6(i).</strong> Describe one difference between insertion sort and bubble sort.</p><div class="answer"><strong>Mark-scheme points:</strong> insertion sort moves a value into its correct position within a sorted section; bubble sort repeatedly compares and swaps adjacent values, usually needing multiple passes.</div></article>
+        <article class="card question"><h3>Write iterative pseudocode <span class="marks">[5]</span></h3><p><strong>OCR ExamBuilder Q7(ii).</strong> Input 10 values, count how many are over 50, then output the count after all values have been entered.</p><div class="answer"><strong>Mark-scheme answer:</strong> initialise <code>count ← 0</code>; use a valid loop of 10; input a value; use selection for <code>value &gt; 50</code>; increment <code>count</code>; output after the loop.</div></article>
       </div>
     </section>
 
