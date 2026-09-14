@@ -25,6 +25,8 @@
     .masthead { background:linear-gradient(125deg,var(--green-dark),var(--green)); color:#fff; }
     .masthead-inner, .primary-nav-inner, .toolbar-inner, main, footer { width:min(1420px,94vw); margin:auto; }
     .masthead-inner { min-height:104px; padding:1.15rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .brand-lockup { display:flex; align-items:center; gap:.85rem; }
+    .logo-mark { width:68px; height:68px; flex:0 0 68px; }
     .brand-line { margin:0; font-size:.79rem; font-weight:900; letter-spacing:.16em; line-height:1.25; text-transform:uppercase; }
     .college-line { color:#dff1e8; }
     .hub-line { margin-top:.34rem; color:#fff; font-size:1rem; }
@@ -98,9 +100,25 @@
 <body>
   <header class="masthead">
     <div class="masthead-inner">
-      <div>
-        <p class="brand-line college-line">Reepham College · Computer Science</p>
-        <h1 class="brand-line hub-line">GCSE Hub</h1>
+      <div class="brand-lockup">
+        <svg class="logo-mark" viewBox="0 0 282 282" role="img" aria-label="Computer Science logo">
+          <defs>
+            <linearGradient id="csLogoFill" x1="44" y1="22" x2="235" y2="258" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#4ca08c"></stop>
+              <stop offset="1" stop-color="#21826a"></stop>
+            </linearGradient>
+          </defs>
+          <circle cx="141" cy="141" r="130" fill="url(#csLogoFill)" stroke="#006648" stroke-width="10"></circle>
+          <path d="M91 40c48 2 86 32 100 72-30-25-66-42-100-72Z" fill="#b9ddc8" opacity=".62"></path>
+          <path d="M194 238c-48-2-86-32-100-72 30 25 66 42 100 72Z" fill="#b9ddc8" opacity=".62"></path>
+          <path d="M132 49c36 26 59 66 60 109-13-36-38-75-60-109Z" fill="#d9eee1" opacity=".34"></path>
+          <path d="M150 232c-36-26-59-66-60-109 13 36 38 75 60 109Z" fill="#d9eee1" opacity=".34"></path>
+          <text x="141" y="177" text-anchor="middle" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="100" font-weight="900" letter-spacing="-8">CS</text>
+        </svg>
+        <div>
+          <p class="brand-line college-line">Reepham College · Computer Science</p>
+          <h1 class="brand-line hub-line">GCSE Hub</h1>
+        </div>
       </div>
       <div class="spec-badge">OCR J277</div>
     </div>
