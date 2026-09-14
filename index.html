@@ -3,48 +3,61 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="description" content="Reepham College OCR J277 GCSE Computer Science lesson hub.">
-  <title>Reepham College | J277 Lesson Hub</title>
+  <meta name="description" content="Reepham College OCR J277 GCSE Computer Science hub.">
+  <title>Reepham College | GCSE Hub</title>
   <style>
     :root {
-      --green:#176b4a; --green-dark:#0d4c34; --green-soft:#e7f3ed;
-      --cream:#f5f1e8; --paper:#fff; --ink:#17221d; --muted:#5b6a63;
-      --line:#ccd9d2; --gold:#d5a62b; --shadow:0 8px 24px rgba(13,76,52,.09);
+      --green:#176b4a;
+      --green-dark:#0d4c34;
+      --green-soft:#e8f3ed;
+      --cream:#f5f1e8;
+      --paper:#ffffff;
+      --ink:#17221d;
+      --muted:#5b6a63;
+      --line:#ccd9d2;
+      --gold:#d5a62b;
+      --shadow:0 8px 24px rgba(13,76,52,.09);
     }
     * { box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body { margin:0; background:var(--cream); color:var(--ink); font-family:Arial,Helvetica,sans-serif; }
     a { color:inherit; }
-    header { background:linear-gradient(125deg,var(--green-dark),var(--green)); color:#fff; }
-    .header-inner, main, footer { width:min(1420px,94vw); margin:auto; }
-    .header-inner { padding:2rem 0 1.7rem; display:grid; grid-template-columns:1fr auto; gap:1.2rem; align-items:end; }
-    .school { margin:0 0 .25rem; color:#dff1e8; font-size:.78rem; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
-    h1 { margin:0; font-size:clamp(2rem,4vw,4.1rem); line-height:1; letter-spacing:-.045em; }
-    .subtitle { margin:.55rem 0 0; max-width:65ch; color:#e8f5ee; font-size:1.05rem; }
-    .spec-badge { border:1px solid rgba(255,255,255,.4); border-radius:999px; padding:.65rem 1rem; font-weight:800; white-space:nowrap; }
-    .toolbar { position:sticky; top:0; z-index:10; background:rgba(245,241,232,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); }
-    .toolbar-inner { width:min(1420px,94vw); margin:auto; padding:.75rem 0; display:grid; grid-template-columns:auto minmax(240px,1fr) auto; gap:.75rem; align-items:center; }
+    .masthead { background:linear-gradient(125deg,var(--green-dark),var(--green)); color:#fff; }
+    .masthead-inner, .primary-nav-inner, .toolbar-inner, main, footer { width:min(1420px,94vw); margin:auto; }
+    .masthead-inner { min-height:104px; padding:1.15rem 0; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .brand-line { margin:0; font-size:.79rem; font-weight:900; letter-spacing:.16em; line-height:1.25; text-transform:uppercase; }
+    .college-line { color:#dff1e8; }
+    .hub-line { margin-top:.34rem; color:#fff; font-size:1rem; }
+    .spec-badge { border:1px solid rgba(255,255,255,.44); border-radius:999px; padding:.58rem .88rem; color:#fff; font-size:.83rem; font-weight:900; letter-spacing:.03em; white-space:nowrap; }
+    .primary-nav { background:var(--paper); border-bottom:1px solid var(--line); }
+    .primary-nav-inner { display:flex; gap:.18rem; align-items:center; min-height:52px; }
+    .primary-nav a { display:inline-flex; min-height:52px; align-items:center; padding:0 1rem; color:var(--green-dark); font-size:.9rem; font-weight:900; text-decoration:none; border-bottom:4px solid transparent; }
+    .primary-nav a:hover { background:var(--green-soft); }
+    .primary-nav a[aria-current="page"] { border-bottom-color:var(--green); }
+    .toolbar { position:sticky; top:0; z-index:10; background:rgba(245,241,232,.97); border-bottom:1px solid var(--line); backdrop-filter:blur(10px); }
+    .toolbar-inner { padding:.72rem 0; display:grid; grid-template-columns:auto minmax(250px,1fr) auto; gap:.72rem; align-items:center; }
     .tabs, .view-buttons { display:flex; gap:.45rem; }
     button, input { font:inherit; }
-    button { min-height:44px; border:1px solid var(--line); border-radius:.6rem; background:#fff; color:var(--green-dark); padding:.55rem .85rem; font-weight:800; cursor:pointer; }
+    button { min-height:42px; border:1px solid var(--line); border-radius:.56rem; background:#fff; color:var(--green-dark); padding:.5rem .8rem; font-weight:850; cursor:pointer; }
     button[aria-pressed="true"] { border-color:var(--green); background:var(--green); color:#fff; }
-    input { width:100%; min-height:44px; border:1px solid #aabdb3; border-radius:.6rem; background:#fff; padding:.65rem .85rem; color:var(--ink); }
+    input { width:100%; min-height:42px; border:1px solid #aabdb3; border-radius:.56rem; background:#fff; padding:.62rem .82rem; color:var(--ink); }
     input:focus, button:focus, a:focus { outline:3px solid var(--gold); outline-offset:2px; }
-    main { padding:1.3rem 0 3rem; }
-    .overview { display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:1rem; }
-    .overview h2 { margin:0; color:var(--green-dark); font-size:1.45rem; }
-    .progress { color:var(--muted); font-weight:750; }
-    .term { margin:.85rem 0; border:1px solid var(--line); border-radius:.9rem; background:rgba(255,255,255,.55); overflow:hidden; box-shadow:var(--shadow); }
+    main { padding:1.35rem 0 3rem; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; gap:1rem; margin-bottom:1rem; }
+    .section-kicker { margin:0 0 .28rem; color:var(--green); font-size:.74rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+    h2 { margin:0; color:var(--green-dark); font-size:1.5rem; letter-spacing:-.025em; }
+    .progress { color:var(--muted); font-size:.92rem; font-weight:750; text-align:right; }
+    .term { margin:.85rem 0; border:1px solid var(--line); border-radius:.92rem; background:rgba(255,255,255,.56); overflow:hidden; box-shadow:var(--shadow); }
     .term[hidden] { display:none; }
-    .term-head { padding:.85rem 1rem; display:flex; justify-content:space-between; gap:1rem; align-items:center; background:var(--green-soft); border-bottom:1px solid var(--line); }
-    .term-head h2 { margin:0; color:var(--green-dark); font-size:1.25rem; }
-    .term-head span { color:var(--muted); font-size:.9rem; font-weight:750; }
-    .term-head .term-range { display:block; margin-top:.2rem; color:var(--green); font-size:.88rem; font-weight:900; letter-spacing:.02em; }
+    .term-head { padding:.86rem 1rem; display:flex; justify-content:space-between; gap:1rem; align-items:center; background:var(--green-soft); border-bottom:1px solid var(--line); }
+    .term-head h3 { margin:0; color:var(--green-dark); font-size:1.18rem; }
+    .term-head span { color:var(--muted); font-size:.88rem; font-weight:750; text-align:right; }
+    .term-range { display:block; margin-top:.22rem; color:var(--green); font-size:.81rem; font-weight:900; letter-spacing:.03em; }
     .lesson-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:.7rem; padding:.8rem; }
     .lesson-card { min-height:142px; border:1px solid var(--line); border-radius:.75rem; padding:.8rem; background:var(--paper); display:flex; flex-direction:column; gap:.4rem; }
-    a.lesson-card { text-decoration:none; border-top:6px solid var(--green); transition:transform .15s ease,box-shadow .15s ease; }
+    a.lesson-card { color:inherit; text-decoration:none; border-top:6px solid var(--green); transition:transform .15s ease,box-shadow .15s ease; }
     a.lesson-card:hover { transform:translateY(-3px); box-shadow:0 10px 22px rgba(13,76,52,.14); }
-    .lesson-number { color:var(--green); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
+    .lesson-number, .card-label { color:var(--green); font-size:.75rem; font-weight:900; letter-spacing:.08em; text-transform:uppercase; }
     .lesson-card h3 { margin:0; color:var(--green-dark); font-size:1rem; line-height:1.18; }
     .lesson-meta { margin-top:auto; color:var(--muted); font-size:.78rem; font-weight:700; }
     .open-label { color:var(--green); font-size:.82rem; font-weight:900; }
@@ -52,42 +65,108 @@
     .planned .lesson-number { color:#7b847f; }
     .planned h3 { color:#6b736f; }
     .empty { padding:2rem; text-align:center; color:var(--muted); }
-    footer { padding:1.1rem 0 2rem; border-top:1px solid var(--line); color:var(--muted); font-size:.88rem; }
+    .practice-section { scroll-margin-top:1rem; margin-top:2.5rem; padding-top:1.25rem; border-top:3px solid var(--green); }
+    .section-summary { max-width:65ch; margin:.42rem 0 1rem; color:var(--muted); line-height:1.45; }
+    .practice-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.78rem; }
+    .practice-card { min-height:158px; border:1px solid var(--line); border-radius:.78rem; padding:1rem; background:var(--paper); box-shadow:0 4px 14px rgba(13,76,52,.05); display:flex; flex-direction:column; gap:.42rem; }
+    .practice-card h3 { margin:0; color:var(--green-dark); font-size:1.07rem; line-height:1.18; }
+    .practice-card p { margin:0; color:var(--muted); font-size:.89rem; line-height:1.38; }
+    .status { margin-top:auto; display:inline-flex; align-self:flex-start; border:1px solid #b6cabd; border-radius:999px; padding:.28rem .52rem; color:var(--green-dark); background:var(--green-soft); font-size:.74rem; font-weight:900; }
+    .exam-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.78rem; }
+    .exam-card { min-height:150px; border:1px solid var(--line); border-radius:.78rem; padding:1rem; background:#fdfcf8; display:flex; flex-direction:column; gap:.42rem; }
+    .exam-card h3 { margin:0; color:var(--green-dark); font-size:1.05rem; }
+    .exam-card p { margin:0; color:var(--muted); font-size:.89rem; line-height:1.38; }
+    .exam-card .card-label { color:#8d6815; }
+    footer { padding:1.2rem 0 2rem; border-top:1px solid var(--line); color:var(--muted); font-size:.88rem; }
     @media (max-width:1050px) { .lesson-grid { grid-template-columns:repeat(3,minmax(0,1fr)); } }
     @media (max-width:760px) {
-      .header-inner { grid-template-columns:1fr; }
-      .spec-badge { justify-self:start; }
+      .masthead-inner { min-height:0; }
       .toolbar-inner { grid-template-columns:1fr; }
-      .lesson-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-      .overview { align-items:flex-start; flex-direction:column; }
-      .term-head { align-items:flex-start; flex-direction:column; }
+      .lesson-grid, .practice-grid, .exam-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .section-head, .term-head { align-items:flex-start; flex-direction:column; }
+      .progress, .term-head span { text-align:left; }
     }
-    @media (max-width:470px) { .lesson-grid { grid-template-columns:1fr; } .tabs button,.view-buttons button { flex:1; } }
+    @media (max-width:470px) {
+      .masthead-inner { align-items:flex-start; flex-direction:column; }
+      .primary-nav-inner { overflow-x:auto; width:100%; padding:0 3vw; }
+      .primary-nav a { padding:0 .75rem; white-space:nowrap; }
+      .lesson-grid, .practice-grid, .exam-grid { grid-template-columns:1fr; }
+      .tabs button, .view-buttons button { flex:1; }
+    }
   </style>
 </head>
 <body>
-  <header>
-    <div class="header-inner">
-      <div><p class="school">Reepham College · Computer Science</p><h1>GCSE Lesson Hub</h1><p class="subtitle">OCR J277 lessons organised by year and half-term. Lessons follow the school’s J277 schemes of learning; the half-term grouping can be revised as calendars change.</p></div>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div>
+        <p class="brand-line college-line">Reepham College · Computer Science</p>
+        <h1 class="brand-line hub-line">GCSE Hub</h1>
+      </div>
       <div class="spec-badge">OCR J277</div>
     </div>
   </header>
 
+  <nav class="primary-nav" aria-label="Hub navigation">
+    <div class="primary-nav-inner">
+      <a href="#lessons" aria-current="page">Lessons</a>
+      <a href="#skills-practice">Skills Practice</a>
+      <a href="#exam-practice">Exam Practice</a>
+    </div>
+  </nav>
+
   <div class="toolbar">
     <div class="toolbar-inner">
-      <div class="tabs" aria-label="Select year group"><button type="button" data-year="10" aria-pressed="true">Year 10</button><button type="button" data-year="11" aria-pressed="false">Year 11</button></div>
+      <div class="tabs" aria-label="Select year group">
+        <button type="button" data-year="10" aria-pressed="true">Year 10</button>
+        <button type="button" data-year="11" aria-pressed="false">Year 11</button>
+      </div>
       <label><span hidden>Search lessons</span><input id="search" type="search" placeholder="Search by lesson number, title or specification…"></label>
-      <div class="view-buttons" aria-label="Choose lesson availability"><button type="button" data-view="all" aria-pressed="true">All</button><button type="button" data-view="available" aria-pressed="false">Available</button></div>
+      <div class="view-buttons" aria-label="Choose lesson availability">
+        <button type="button" data-view="all" aria-pressed="true">All</button>
+        <button type="button" data-view="available" aria-pressed="false">Available</button>
+      </div>
     </div>
   </div>
 
   <main>
-    <div class="overview"><h2 id="yearHeading">Year 10 programme</h2><div id="progress" class="progress" aria-live="polite"></div></div>
-    <div id="terms"></div>
-    <div id="empty" class="empty" hidden>No lessons match that search.</div>
+    <section id="lessons" aria-labelledby="yearHeading">
+      <div class="section-head">
+        <div><p class="section-kicker">Lesson sequence</p><h2 id="yearHeading">Year 10 lessons</h2></div>
+        <div id="progress" class="progress" aria-live="polite"></div>
+      </div>
+      <div id="terms"></div>
+      <div id="empty" class="empty" hidden>No lessons match that search.</div>
+    </section>
+
+    <section id="skills-practice" class="practice-section" aria-labelledby="practiceHeading">
+      <div class="section-head">
+        <div><p class="section-kicker">Independent practice</p><h2 id="practiceHeading">Skills Practice</h2></div>
+      </div>
+      <p class="section-summary">Short, repeatable practice pages will sit here. Students will choose a skill, practise it repeatedly and receive immediate feedback.</p>
+      <div class="practice-grid">
+        <article class="practice-card"><span class="card-label">First set</span><h3>Binary and hexadecimal</h3><p>Conversions, addition, overflow, shifts, MSB and LSB.</p><span class="status">Planned</span></article>
+        <article class="practice-card"><span class="card-label">First set</span><h3>Trace tables</h3><p>Follow variables, loops, arrays and outputs line by line.</p><span class="status">Planned</span></article>
+        <article class="practice-card"><span class="card-label">First set</span><h3>OCR Exam Reference Language</h3><p>Complete, correct and arrange precise OCR-style code.</p><span class="status">Planned</span></article>
+        <article class="practice-card"><span class="card-label">First set</span><h3>Truth tables and logic</h3><p>AND, OR and NOT gates, symbols and combined logic.</p><span class="status">Planned</span></article>
+        <article class="practice-card"><span class="card-label">First set</span><h3>Test data and validation</h3><p>Normal, boundary, invalid and erroneous data in context.</p><span class="status">Planned</span></article>
+        <article class="practice-card"><span class="card-label">First set</span><h3>Searching and sorting</h3><p>Recognise, trace and apply the required algorithms.</p><span class="status">Planned</span></article>
+      </div>
+    </section>
+
+    <section id="exam-practice" class="practice-section" aria-labelledby="examHeading">
+      <div class="section-head">
+        <div><p class="section-kicker">Assessment preparation</p><h2 id="examHeading">Exam Practice</h2></div>
+      </div>
+      <p class="section-summary">Paper-specific question sets and answer support will be added here, separated from skills practice so revision is easy to target.</p>
+      <div class="exam-grid">
+        <article class="exam-card"><span class="card-label">J277/01 · 80 marks</span><h3>Paper 1: Computer systems</h3><p>Knowledge, calculations, scenario questions and extended responses.</p><span class="status">Planned</span></article>
+        <article class="exam-card"><span class="card-label">J277/02 · Section A</span><h3>Paper 2: Algorithms and theory</h3><p>Algorithms, programming concepts, Boolean logic and problem solving.</p><span class="status">Planned</span></article>
+        <article class="exam-card"><span class="card-label">J277/02 · Section B</span><h3>Paper 2: Practical programming</h3><p>Design, write, test and refine using OCR Exam Reference Language.</p><span class="status">Planned</span></article>
+      </div>
+    </section>
   </main>
 
-  <footer><strong>Reepham College Computer Science</strong> · Lesson materials for OCR GCSE Computer Science J277.</footer>
+  <footer><strong>Reepham College · Computer Science</strong> · OCR GCSE Computer Science J277</footer>
 
   <script>
     const availableLessons = {
@@ -102,8 +181,7 @@
       75: { title: 'Trace tables', spec: '2.1 Algorithms' },
       76: { title: 'Reading and improving pseudocode', spec: '2.1 Algorithms' }
     };
-    // Approximate one-hour lesson capacity at 5 lessons per fortnight.
-    // Edit these counts when a new school calendar is published.
+
     const programmes = {
       10: {
         start: 1,
@@ -128,68 +206,95 @@
         ]
       }
     };
-    let selectedYear=10;
-    let selectedView='all';
-    const pad=n=>String(n).padStart(3,'0');
 
-    function render(){
-      const query=document.getElementById('search').value.trim().toLowerCase();
-      const programme=programmes[selectedYear];
-      const start=programme.start;
-      const total=programme.terms.reduce((sum,term)=>sum+term.count,0);
-      const holder=document.getElementById('terms'); holder.innerHTML='';
-      let visibleCards=0;
-      let termStart=start;
-      for(const term of programme.terms){
-        const records=[];
-        for(let n=termStart;n<termStart+term.count;n++){
-          const item=availableLessons[n];
-          if(selectedView==='available'&&!item) continue;
-          const searchable=`${pad(n)} ${item?.title||'coming soon'} ${item?.spec||''}`.toLowerCase();
-          if(query&&!searchable.includes(query)) continue;
+    let selectedYear = 10;
+    let selectedView = 'all';
+    const pad = n => String(n).padStart(3,'0');
+
+    function render() {
+      const query = document.getElementById('search').value.trim().toLowerCase();
+      const programme = programmes[selectedYear];
+      const start = programme.start;
+      const total = programme.terms.reduce((sum,term) => sum + term.count, 0);
+      const holder = document.getElementById('terms');
+      holder.innerHTML = '';
+      let visibleCards = 0;
+      let termStart = start;
+
+      for (const term of programme.terms) {
+        const records = [];
+        for (let n = termStart; n < termStart + term.count; n++) {
+          const item = availableLessons[n];
+          if (selectedView === 'available' && !item) continue;
+          const searchable = (pad(n) + ' ' + (item ? item.title : 'coming soon') + ' ' + (item ? item.spec : '')).toLowerCase();
+          if (query && !searchable.includes(query)) continue;
           records.push({n,item});
         }
-        if(!records.length&&term.count>0){ termStart+=term.count; continue; }
-        const section=document.createElement('section'); section.className='term';
-        const count=records.filter(record=>record.item).length;
-        const range=term.count===0 ? 'No numbered lessons' : `Lessons ${pad(termStart)}–${pad(termStart+term.count-1)}`;
-        const status=term.count===0 ? term.note : `${count} available · ${term.count} planned${term.note?` · ${term.note}`:''}`;
-        section.innerHTML=`<div class="term-head"><h2>${term.name}<span class="term-range">${range}</span></h2><span>${status}</span></div><div class="lesson-grid"></div>`;
-        const grid=section.querySelector('.lesson-grid');
-        if(term.count===0){
-          grid.innerHTML='<div class="empty">No timetabled teaching lessons are planned for this half-term.</div>';
+
+        if (!records.length && term.count > 0) {
+          termStart += term.count;
+          continue;
         }
-        records.forEach(({n,item})=>{
+
+        const section = document.createElement('section');
+        section.className = 'term';
+        const liveCount = records.filter(record => record.item).length;
+        const range = term.count === 0 ? 'No numbered lessons' : 'Lessons ' + pad(termStart) + '–' + pad(termStart + term.count - 1);
+        let status = '';
+        if (term.count === 0) {
+          status = term.note;
+        } else {
+          status = liveCount + ' available · ' + term.count + ' planned';
+          if (term.note) status += ' · ' + term.note;
+        }
+        section.innerHTML = '<div class="term-head"><div><h3>' + term.name + '</h3><span class="term-range">' + range + '</span></div><span>' + status + '</span></div><div class="lesson-grid"></div>';
+        const grid = section.querySelector('.lesson-grid');
+
+        if (term.count === 0) {
+          grid.innerHTML = '<div class="empty">No timetabled teaching lessons are planned for this half-term.</div>';
+        }
+
+        records.forEach(record => {
+          const n = record.n;
+          const item = record.item;
           let card;
-          if(item){
-            card=document.createElement('a'); card.className='lesson-card'; card.href=`lessons/J277Lesson${pad(n)}.html`;
-            card.innerHTML=`<span class="lesson-number">Lesson ${pad(n)}</span><h3>${item.title}</h3><span class="lesson-meta">OCR J277 ${item.spec}</span><span class="open-label">Open lesson →</span>`;
+          if (item) {
+            card = document.createElement('a');
+            card.className = 'lesson-card';
+            card.href = 'lessons/J277Lesson' + pad(n) + '.html';
+            card.innerHTML = '<span class="lesson-number">Lesson ' + pad(n) + '</span><h3>' + item.title + '</h3><span class="lesson-meta">OCR J277 ' + item.spec + '</span><span class="open-label">Open lesson →</span>';
           } else {
-            card=document.createElement('div'); card.className='lesson-card planned';
-            card.innerHTML=`<span class="lesson-number">Lesson ${pad(n)}</span><h3>Coming soon</h3><span class="lesson-meta">Planned lesson</span>`;
+            card = document.createElement('div');
+            card.className = 'lesson-card planned';
+            card.innerHTML = '<span class="lesson-number">Lesson ' + pad(n) + '</span><h3>Coming soon</h3><span class="lesson-meta">Planned lesson</span>';
           }
-          grid.append(card); visibleCards++;
+          grid.append(card);
+          visibleCards++;
         });
+
         holder.append(section);
-        termStart+=term.count;
+        termStart += term.count;
       }
-      const available=Object.keys(availableLessons).map(Number).filter(n=>n>=start&&n<start+total).length;
-      document.getElementById('yearHeading').textContent=`Year ${selectedYear} programme`;
-      document.getElementById('progress').textContent=`${available} of ${total} planned lesson positions available`;
-      document.getElementById('empty').hidden=visibleCards!==0;
+
+      const liveTotal = Object.keys(availableLessons).map(Number).filter(n => n >= start && n < start + total).length;
+      document.getElementById('yearHeading').textContent = 'Year ' + selectedYear + ' lessons';
+      document.getElementById('progress').textContent = liveTotal + ' live lessons · ' + total + ' planned lesson positions';
+      document.getElementById('empty').hidden = visibleCards !== 0;
     }
 
-    document.querySelectorAll('[data-year]').forEach(button=>button.addEventListener('click',()=>{
-      selectedYear=Number(button.dataset.year);
-      document.querySelectorAll('[data-year]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+    document.querySelectorAll('[data-year]').forEach(button => button.addEventListener('click', () => {
+      selectedYear = Number(button.dataset.year);
+      document.querySelectorAll('[data-year]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       render();
     }));
-    document.querySelectorAll('[data-view]').forEach(button=>button.addEventListener('click',()=>{
-      selectedView=button.dataset.view;
-      document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+
+    document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => {
+      selectedView = button.dataset.view;
+      document.querySelectorAll('[data-view]').forEach(item => item.setAttribute('aria-pressed', String(item === button)));
       render();
     }));
-    document.getElementById('search').addEventListener('input',render);
+
+    document.getElementById('search').addEventListener('input', render);
     render();
   </script>
 </body>
